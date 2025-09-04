@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Wan-Puck Upholstery</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-top: 50px; /* space for fixed navbar */
+}
+
+:target {
+  scroll-margin-top: 100px; /* adjust for navbar height */
+}
+
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px 30px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links a {
+            color: white;
+            margin-left: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+            }
+
+.nav-links a:hover {
+    color: gold;
+}
+
+.about-box, .founder-card, .contact-info {
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); /* soft gold glow */
+}
+
+.about-page {
+    padding: 120px 20px 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-section {
+  position: relative;
+  z-index: 1;
+  padding: 40px 20px;
+}
+
+.about-page h1 {
+    color: gold;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.about-description {
+    font-family: 'Georgia', serif;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    color: #ddd;
+}
+
+.about-box {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-box p {
+  font-family: 'Georgia', serif;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  text-align: center;
+  color: #ddd;
+  margin: 0;
+}
+
+.about-section::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('images/background.jpg') center/cover no-repeat fixed;
+  filter: blur(8px) brightness(0.6);
+  z-index: -1;
+}
+
+.founders {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.founder-card {
+    background: rgba(0,0,0,0.6);
+    border-radius: 12px;
+    text-align: center;
+    padding: 20px;
+}
+
+.founder-card img {
+    width: 100%;
+    max-width: 220px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.founder-card h3 {
+    margin-bottom: 8px;
+    color: gold;
+}
+
+.contact-info {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.contact-info h2 {
+    color: gold;
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    margin: 8px 0;
+    font-size: 1.1rem;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 10px;
+    color: gold;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    text-decoration: underline;
+}
+
+.social-links a i {
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-top: 50px; /* space for fixed navbar */
+  position: relative; /* to contain z-index children */
+  background: none; /* remove old background */
+}
+
+.background-blur {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('images/background.jpg') center/cover no-repeat fixed;
+  filter: blur(8px) brightness(0.6);
+  z-index: -1;
+}
+
+  </style>
+</head>
+<body>
+
+
+  <!-- ✅ Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
+
+  <!-- Navbar -->
+
+  <div class="background-blur"></div>
+  <header class="navbar">
+    <h1 class="logo">
+      <img src="images/logo.png" alt="Couch Logo" class="logo-icon" style="width: 40px; vertical-align: middle;">
+      Wan-Puck Upholstery
+    </h1>
+    <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="portfolio.html">Portfolio</a>
+      </nav>
+  </header>
+
+  <!-- About Section -->
+  <section class="about-page">
+    <h1>About Us</h1>
+    <div class="about-box">
+        <p>
+          At Wan-Puck Upholstery, we’re passionate about turning your furniture into timeless pieces you’ll treasure. 
+          Based in Midrand, Gauteng, our team brings unmatched skill and attention to detail in every project — from 
+          classic couch restorations to bold custom creations. We pride ourselves on quality craftsmanship, elegant 
+          design, and making your vision a reality.
+        </p>
+<br>
+        <p>
+            We breath new life into your beloved furniture with expert craftsmanship and a wide range of stylish fabrics. 
+            Here we restore comfort, beauty, and value - one piece at a time.
+        </p>
+      </div>
+      
+
+    <!-- Founders -->
+    <div class="founders">
+      <div class="founder-card">
+        <img src="images/founder1.jpg" alt="Founder 1">
+        <h3>Wanda Mciteka</h3>
+        <p>Co-Founder</p>
+      </div>
+      <div class="founder-card">
+        <img src="images/founder2.jpg" alt="Founder 2">
+        <h3>Nkosilathi Dube (Pucknice)</h3>
+        <p>Co-Founder</p>
+      </div>
+    </div>
+
+<!-- Contact Info -->
+<div class="contact-info">
+    <h2>Contact Us</h2>
+    <p><strong>Phone/WhatsApp:</strong> 
+      <a href="https://wa.me/27662888209" target="_blank" style="color:gold;">066 288 8209</a> |
+      <a href="https://wa.me/27794212961" target="_blank" style="color:gold;">079 421 2961</a>
+    </p>
+    <p><strong>Email:</strong> 
+      <a href="mailto:wanpuckupholstery@gmail.com" style="color:gold;">wanpuckupholstery@gmail.com</a>
+    </p>
+    <p><strong>Location:</strong> Cnr. Brand Road & Swart Dr, President Park AH, Midrand 1685, Gauteng, South Africa</p>
+  
+    <div class="social-links">
+        <a href="https://www.instagram.com/wanpuckupholstery" target="_blank">
+          <i class="fab fa-instagram"></i> Instagram
+        </a> |
+      
+        <a href="https://www.facebook.com/wanpuckupholstery" target="_blank">
+          <i class="fab fa-facebook-f"></i> Facebook
+        </a> |
+      
+        <a href="https://www.tiktok.com/@wanpuckupholstery" target="_blank">
+          <i class="fab fa-tiktok"></i> TikTok
+        </a>
+      </div>
+      
+  </div>
+  
+  </section>
+
+</body>
+</html>

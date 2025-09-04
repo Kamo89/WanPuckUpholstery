@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wan-Puck Upholstery | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Inline minimal styles for portfolio page and lightbox */
+    body, html {
+      margin: 0; padding: 0; height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('images/background.jpg') center/cover no-repeat fixed;
+      color: white;
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding-top: 50px; /* space for fixed navbar */
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px 30px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    .navbar .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: gold;
+      letter-spacing: 1px;
+    }
+
+        .nav-links a {
+            color: white;
+            margin-left: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+            }
+
+.nav-links a:hover {
+    color: gold;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* spacing between image and text */
+  color: gold;
+}
+
+.logo-icon {
+  width: 40px;
+  height: auto;
+  border-radius: 8px; /* optional: smooth edges */
+}
+
+
+    /* Portfolio Section */
+    .portfolio-section {
+  min-height: 100vh;
+  padding: 40px 20px 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.portfolio-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.portfolio-header {
+  margin-bottom: 40px;
+}
+
+.portfolio-section::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('images/background.jpg') center/cover no-repeat fixed;
+  filter: blur(8px) brightness(0.6);
+  z-index: -1;
+}
+
+.portfolio-section h2 {
+  font-size: 2.5rem;
+  color: gold;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.portfolio-section .intro-text {
+  color: #ddd;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  justify-items: center;
+}
+
+.portfolio-video {
+  width: 80%; /* or try 600px */
+  max-width: 800px;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+/* Custom gallery media layout */
+#customGallery .media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  padding: 20px;
+}
+
+.lightbox {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.95);
+  display: none;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: auto;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  z-index: 2000;
+}
+
+.lightbox-content {
+  max-width: 900px;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 20px;
+  padding: 30px;
+  overflow-y: auto;
+  box-shadow: 0 0 20px gold;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.lightbox-content {
+  position: relative; /* this keeps the close button inside */
+  max-width: 900px;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 20px;
+  padding: 30px;
+  overflow-y: auto;
+  box-shadow: 0 0 20px gold;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  margin-top: 70px; /* Space from navbar */
+}
+
+.lightbox {
+  display: none;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.lightbox h2 {
+  margin-bottom: 10px;
+}
+
+.lightbox p {
+  margin-bottom: 30px;
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+.project-title {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  color: gold;
+  margin-bottom: 10px;
+}
+
+.project-description {
+  font-size: 18px;
+  text-align: center;
+  color: #ddd;
+  margin-bottom: 25px;
+  font-style: italic;
+}
+
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.media-grid img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.3); /* Gold glow */
+  transition: transform 0.3s;
+}
+
+.media-grid img:hover {
+  transform: scale(1.03);
+}
+
+.video-wrapper {
+  text-align: center;
+}
+
+.video-wrapper video {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 16px rgba(255, 215, 0, 0.4); /* gold glow */
+}
+
+
+
+#customGallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  justify-items: center;
+}
+
+#customGallery img,
+#customGallery video {
+  width: 100%;
+  border-radius: 12px;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #FFD700; /* Gold */
+  cursor: pointer;
+  z-index: 9999;
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: orange; /* Slightly brighter gold */
+  transform: scale(1.1);
+}
+
+
+
+    @media (max-width: 768px) {
+      .nav-links a {
+        margin-left: 15px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
+
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <h1 class="logo">
+        <img src="images/logo.png" alt="Couch Logo" class="logo-icon">
+        Wan-Puck Upholstery
+      </h1>      
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="portfolio.html">Portfolio</a>
+    </nav>
+  </header>
+
+  <!-- Portfolio Content -->
+  <section class="portfolio-section">
+    <div class="portfolio-container">
+      <div class="portfolio-header">
+        <h2>Our Portfolio</h2>
+        <p class="intro-text">
+          Take a look at some of our recent transformations and custom builds.
+        </p>
+      </div>
+  
+      <div class="portfolio-grid">
+        <img src="images/IMG_8681.JPG" alt="Elegant Cream Couch" onclick="openGallery('creamCouch')" class="no-default-lightbox" />
+        <img src="images/IMG_8680.JPG" alt="C-shapedRecliner" onclick="openGallery('C-shapedRecliner')" class="no-default-lightbox" />
+        <img src="images/IMG_8686.JPG" alt="L-shaped couch" onclick="openGallery('L-shaped couch')" class="no-default-lightbox" />
+        <img src="images/IMG_8685.JPG" alt="3-2-1 Lounge set" onclick="openGallery('3-2-1 Lounge set_1')" class="no-default-lightbox" />
+        <img src="images/IMG_8683.JPG" alt="3-2-1 Lounge set_2" onclick="openGallery('3-2-1 Lounge set_2')" class="no-default-lightbox" />
+        <img src="images/IMG_8679.JPG" alt="8 Chair Transformation" onclick="openGallery('customGallery')" class="no-default-lightbox" />
+        <img src="images/IMG_8900.JPG" alt="Buffalo-Leather Couch" onclick="openGallery('Buffalo-Leather Couch')" class="no-default-lightbox" /> <!-- No Pictures -->
+        <img src="images/IMG_8901.JPG" alt="8 Chair Transformation_2" onclick="openGallery('8 Chair Transformation_2')" class="no-default-lightbox" />
+        <img src="images/IMG_8902.JPG" alt="2Single Seater" onclick="openGallery('2Single_Seater')" class="no-default-lightbox" />
+        <img src="images/IMG_8903.JPG" alt="velvet2-seater" onclick="openGallery('velvet2-seater')" class="no-default-lightbox" />
+        <img src="images/IMG_8904.JPG" alt="Corduroy couch" onclick="openGallery('Corduroy couch')" class="no-default-lightbox" /> <!-- No Pictures -->
+        <img src="images/IMG_8905.JPG" alt="Office-Chairs" onclick="openGallery('Office-Chairs')" class="no-default-lightbox" /> <!-- No Pictures -->
+        <img src="images/IMG_8906.JPG" alt="2Seater Couch" onclick="openGallery('2Seater Couch')" class="no-default-lightbox" />
+        <img src="images/IMG_8907.JPG" alt="L-shaped couch_2" onclick="openGallery('L-shaped couch_2')" class="no-default-lightbox" />
+        <img src="images/IMG_8908.JPG" alt="L-shaped couch_3" onclick="openGallery('L-shaped couch_3')" class="no-default-lightbox" />
+        <img src="images/IMG_8909.JPG" alt="CupHolder Couch" onclick="openGallery('CupHolder Couch')" class="no-default-lightbox" />
+        <img src="images/IMG_8910.JPG" alt="3Seater Couch" onclick="openGallery('3Seater Couch')" class="no-default-lightbox" />
+        <img src="images/IMG_8911.JPG" alt="3-2-1 Lounge set_4" onclick="openGallery('3-2-1 Lounge set_4')" class="no-default-lightbox" />
+        <img src="images/IMG_8912.JPG" alt="3-2-1 Lounge set_5" onclick="openGallery('3-2-1 Lounge set_5')" class="no-default-lightbox" />
+      </div>      
+
+      <!-- 3-2-1 Lounge set_2 Couch Lightbox -->
+      <div id="3-2-1 Lounge set_2" class="lightbox" onclick="closeGallery(event)">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+          <span class="close-btn" onclick="closeGallery()">×</span>
+          <h2 class="project-title">3-2-1 Lounge No.2</h2>
+          <p class="project-description">TRANSFORM your old furniture into a MASTERPIECE!✨ </p>
+          <div class="media-grid">
+            <img src="images/3-2-1 Lounge set_2/IMG_9002.JPG" />
+            <img src="images/3-2-1 Lounge set_2/IMG_9003.JPG" />
+            <img src="images/3-2-1 Lounge set_2/IMG_9004.JPG" />
+          </div>
+        </div>
+      </div>
+
+      <!-- 8 Chair Transformation_2 Lightbox -->
+      <div id="8 Chair Transformation_2" class="lightbox" onclick="closeGallery(event)">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+          <span class="close-btn" onclick="closeGallery()">×</span>
+          <h2 class="project-title">8 Chair Transformation No.2</h2>
+          <p class="project-description">Here is an 8 chair set that we upholstered for a client. He wanted fabric that does not peal and is closest to a color of his other chairs. WE DID IT!!🔥 </p>
+          <div class="media-grid">
+            <img src="images/8 Chair Transformation_2/IMG_8996.JPG" />
+            <img src="images/8 Chair Transformation_2/IMG_8997.JPG" />
+          </div>
+        </div>
+      </div>
+
+      <!-- 2Single_Seater Lightbox -->
+      <div id="2Single_Seater" class="lightbox" onclick="closeGallery(event)">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+          <span class="close-btn" onclick="closeGallery()">×</span>
+          <h2 class="project-title">2 Wingbacks</h2>
+          <p class="project-description">2 Wingback donedone🔥🫱🏽‍🫲🏾 </p>
+          <div class="media-grid">
+            <img src="images/2Single_Seater/IMG_8994.JPG" />
+            <img src="images/2Single_Seater/IMG_8995.JPG" />
+          </div>
+        </div>
+      </div>
+
+      <!-- velvet2-seater Lightbox -->
+      <div id="velvet2-seater" class="lightbox" onclick="closeGallery(event)">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+          <span class="close-btn" onclick="closeGallery()">×</span>
+          <h2 class="project-title">lEATHER 2 VELVET</h2>
+          <p class="project-description">This beautiful couch was done by us🙂‍↕️. </p>
+          <div class="media-grid">
+            <img src="images/velvet2-seater/IMG_8989.JPG" />
+            <img src="images/velvet2-seater/IMG_8990.JPG" />
+            <img src="images/velvet2-seater/IMG_8991.JPG" />
+            <img src="images/velvet2-seater/IMG_8992.JPG" />
+            <img src="images/velvet2-seater/IMG_8993.JPG" />
+          </div>
+        </div>
+      </div>
+
+      <!-- 2Seater Couch Lightbox -->
+      <div id="2Seater Couch" class="lightbox" onclick="closeGallery(event)">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+          <span class="close-btn" onclick="closeGallery()">×</span>
+          <h2 class="project-title">2Seater Couch</h2>
+          <p class="project-description">Here is a wonderful 2 seater couch done by yours truely🤩. Client decided that she wants the couch to match the rest of her patio set, so we looked for the color and matched it. 
+            She was over the moon about it😊
+          </p>
+          <div class="media-grid">
+            <img src="images/2Seater Couch/IMG_8985.JPG" />
+            <img src="images/2Seater Couch/IMG_8986.JPG" />
+            <img src="images/2Seater Couch/IMG_8987.JPG" />
+            <img src="images/2Seater Couch/IMG_8988.JPG" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Cream Couch Lightbox -->
+      <div id="creamCouch" class="lightbox" onclick="closeGallery(event)">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+          <span class="close-btn" onclick="closeGallery()">×</span>
+          <h2 class="project-title">Custom Build</h2>
+          <p class="project-description">Tailored upholstery to meet your unique needs.</p>
+          <div class="media-grid">
+            <img src="images/swaidCouch/IMG_8853.JPG" />
+            <img src="images/swaidCouch/IMG_8854.JPG" />
+            <img src="images/swaidCouch/IMG_8855.JPG" />
+            <img src="images/swaidCouch/IMG_8856.JPG" />
+          </div>
+        </div>
+      </div>
+
+      <!--L SHAPED 3 Lightbox -->
+      <div id="L-shaped couch_3" class="lightbox" onclick="closeGallery(event)">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+          <span class="close-btn" onclick="closeGallery()">×</span>
+          <h2 class="project-title">L-shaped couch No.3</h2>
+          <p class="project-description">Before and After of an L-shaped TRANSFORMATION. ✨️👌</p>
+          <div class="media-grid">
+            <img src="images/L-shaped couch_3/IMG_8979.JPG" />
+            <img src="images/L-shaped couch_3/IMG_8980.JPG" />
+            <img src="images/L-shaped couch_3/IMG_8981.JPG" />
+            <img src="images/L-shaped couch_3/IMG_8982.JPG" />
+            <img src="images/L-shaped couch_3/IMG_8983.JPG" />
+            <img src="images/L-shaped couch_3/IMG_8984.JPG" />
+          </div>
+        </div>
+      </div>
+
+      <!--L SHAPED 2 Lightbox -->
+      <div id="L-shaped couch_2" class="lightbox" onclick="closeGallery(event)">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+          <span class="close-btn" onclick="closeGallery()">×</span>
+          <h2 class="project-title">L-shaped couch No.2</h2>
+          <p class="project-description">REVIVED!!🙂‍↕️An L-shaped couch brought back to life by yours truly.😌</p>
+          <div class="media-grid">
+            <img src="images/Lshaped1/IMG_8951.JPG" />
+            <img src="images/Lshaped1/IMG_8952.JPG" />
+            <img src="images/Lshaped1/IMG_8953.JPG" />
+            <img src="images/Lshaped1/IMG_8954.JPG" />
+            <img src="images/Lshaped1/IMG_8955.JPG" />
+          </div>
+        </div>
+      </div>
+
+      <!--L 3-2-1 Lounge set_4 Lightbox -->
+      <div id="3-2-1 Lounge set_4" class="lightbox" onclick="closeGallery(event)">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+          <span class="close-btn" onclick="closeGallery()">×</span>
+          <h2 class="project-title">3-2-1 Lounge No.4</h2>
+          <p class="project-description">Our most popular genuine leather colour, this lounge set is made with cow hides sourced from the best in the world 🌎👌.</p>
+          <div class="media-grid">
+            <img src="images/Orange3-2-1Couch/IMG_8956.JPG" />
+            <img src="images/Orange3-2-1Couch/IMG_8957.JPG" />
+            <img src="images/Orange3-2-1Couch/IMG_8958.JPG" />
+            <img src="images/Orange3-2-1Couch/IMG_8959.JPG" />
+            <img src="images/Orange3-2-1Couch/IMG_8960.JPG" />
+            <img src="images/Orange3-2-1Couch/IMG_8961.JPG" />
+            <img src="images/Orange3-2-1Couch/IMG_8962.JPG" />
+          </div>
+        </div>
+      </div>
+
+      <!--L 3-2-1 Lounge set_5 Lightbox -->
+      <div id="3-2-1 Lounge set_5" class="lightbox" onclick="closeGallery(event)">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+          <span class="close-btn" onclick="closeGallery()">×</span>
+          <h2 class="project-title">3-2-1 Lounge No.5</h2>
+          <p class="project-description">An AMAZING job done to this 3-2-1 lounge set!✨️👌.</p>
+          <div class="media-grid">
+            <img src="images/3-2-1 Lounge set_5/IMG_8972.JPG" />
+            <img src="images/3-2-1 Lounge set_5/IMG_8973.JPG" />
+            <img src="images/3-2-1 Lounge set_5/IMG_8974.JPG" />
+            <img src="images/3-2-1 Lounge set_5/IMG_8975.JPG" />
+          </div>
+        </div>
+      </div>
+
+
+      <!- CupHolder Couch Lightbox -->
+      <div id="CupHolder Couch" class="lightbox" onclick="closeGallery(event)">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+          <span class="close-btn" onclick="closeGallery()">×</span>
+          <h2 class="project-title">2 Seater Couch</h2>
+          <p class="project-description">Fall in love with your same couches all over again! TRANSFORM your old furniture into a MASTERPIECE!✨️👌.</p>
+          <div class="media-grid">
+            <img src="images/CupHolder Couch/IMG_8976.JPG" />
+            <img src="images/CupHolder Couch/IMG_8977.JPG" />
+            <img src="images/CupHolder Couch/IMG_8978.JPG" />
+          </div>
+        </div>
+      </div>
+      <!--L 3-2-1 Lounge set_5 Lightbox -->
+      <div id="3Seater Couch" class="lightbox" onclick="closeGallery(event)">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+          <span class="close-btn" onclick="closeGallery()">×</span>
+          <h2 class="project-title">3 Seater Couch</h2>
+          <p class="project-description">From Worn-Out to WOW!😍✨️. This 3-seater went from old, brown and cracked to sleek and stylish in premium grey leather✨️. A FRESH new look, comfort restored, and ready to impress!</p>
+          <div class="media-grid">
+            <img src="images/3SeaterCouch/IMG_8963.JPG" />
+            <img src="images/3SeaterCouch/IMG_8964.JPG" />
+            <img src="images/3SeaterCouch/IMG_8965.JPG" />
+            <img src="images/3SeaterCouch/IMG_8966.JPG" />
+            <img src="images/3SeaterCouch/IMG_8967.JPG" />
+            <img src="images/3SeaterCouch/IMG_8968.JPG" />
+            <img src="images/3SeaterCouch/IMG_8969.JPG" />
+            <img src="images/3SeaterCouch/IMG_8970.JPG" />
+            <img src="images/3SeaterCouch/IMG_8971.JPG" />
+          </div>
+        </div>
+      </div>
+      <!-- C-shapedRecliner Lightbox -->
+      <div id="C-shapedRecliner" class="lightbox" onclick="closeGallery(event)">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+          <span class="close-btn" onclick="closeGallery()">×</span>
+          <h2 class="project-title">C-Shaped Recliner</h2>
+          <p class="project-description">Transform your space with out stunning C-Shaped Recliner! From dated
+             brown to elegent beige buffalo leather, this makeover brings comfort and style to your home  ✨️👌</p>
+          <div class="media-grid">
+            <img src="images/brownCouch/IMG_8885.JPG" />
+            <img src="images/brownCouch/IMG_8886.JPG" />
+            <img src="images/brownCouch/IMG_8887.JPG" />
+            <img src="images/brownCouch/IMG_8888.JPG" />
+            <img src="images/brownCouch/IMG_8889.JPG" />
+            <img src="images/brownCouch/IMG_8890.JPG" />
+            <img src="images/brownCouch/IMG_8891.JPG" />
+            <img src="images/brownCouch/IMG_8892.JPG" />
+            <img src="images/brownCouch/IMG_8893.JPG" />
+            <img src="images/brownCouch/IMG_8894.JPG" />
+          </div>
+        </div>
+      </div>
+
+      <!-- L-shaped couch Lightbox -->
+      <div id="L-shaped couch" class="lightbox" onclick="closeGallery(event)">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+          <span class="close-btn" onclick="closeGallery()">×</span>
+          <h2 class="project-title">L-shaped couch</h2>
+          <p class="project-description">TRANSFORM your old furniture into a MASTERPIECE!✨️👌</p>
+          <div class="media-grid">
+            <img src="images/Lshaped1/IMG_9005.JPG" />
+          </div>
+        </div>
+      </div>
+  </section>
+  
+ <!-- Custom Lightbox Gallery for Project CustomGallery -->
+<div id="customGallery" class="lightbox" onclick="closeGallery(event)">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <span class="close-btn" onclick="closeGallery()">×</span>
+  
+      <h2 class="project-title">Grey Genuine Leather Chairs</h2>
+      <p class="project-description">
+        The process of turning these 8 chairs into masterpieces was amazing.<br />
+        Grey genuine leather chairs fit for a castle ✨️👌
+      </p>
+  
+      <div class="media-grid">
+        <img src="images/steelchair/stealchair1.jpg" />
+        <img src="images/steelchair/steelchair2.jpg" />
+        <img src="images/steelchair/steelchair3.jpg" />
+        <img src="images/steelchair/steelchair4.jpg" />
+      </div>
+  
+      <div class="video-wrapper">
+        <video controls>
+          <source src="images/8Chairs.MP4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="Expanded Image" />
+      <p id="lightbox-caption" class="lightbox-caption"></p>
+    </div>
+  </div>
+  
+
+  <script>
+
+window.addEventListener('DOMContentLoaded', () => {
+  // Close any open galleries when page loads
+  document.querySelectorAll('.lightbox').forEach(lightbox => {
+    lightbox.style.display = 'none';
+  });
+  document.body.style.overflow = 'auto';
+});
+
+
+    // Default lightbox (for all normal images)
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+  
+    document.querySelectorAll('.portfolio-grid img:not(.no-default-lightbox)')
+      .forEach(img => {
+        img.addEventListener('click', () => {
+          lightbox.style.display = 'flex';
+          lightboxImg.src = img.src;
+          lightboxCaption.textContent = img.dataset.caption || img.alt;
+        });
+    });
+  
+    function closeLightbox(e) {
+      if (e.target !== lightboxImg) {
+        lightbox.style.display = 'none';
+        lightboxImg.src = '';
+        lightboxCaption.textContent = '';
+      }
+    }
+  
+    // Custom gallery
+    function openGallery(id) {
+    const allGalleries = document.querySelectorAll('.lightbox');
+    allGalleries.forEach(g => g.style.display = 'none');
+
+    const selectedGallery = document.getElementById(id);
+    if (selectedGallery) {
+      selectedGallery.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeGallery() {
+    const allGalleries = document.querySelectorAll('.lightbox');
+    allGalleries.forEach(g => g.style.display = 'none');
+    document.body.style.overflow = 'auto';
+  }
+  </script>  
+  </body>
+  </html>

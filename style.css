@@ -1,0 +1,883 @@
+/* Reset default margin and padding */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    /* overflow-x: hidden; */
+    scroll-behavior: smooth;
+    scroll-padding: 100px;
+  }  
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    color: #fff;
+    background: url('images/background\ copy.jpg') center center / cover no-repeat fixed;
+    /* "fixed" keeps the background stationary */
+}
+
+
+.hero-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    /* Removed dark overlay */
+    /* background removed completely — background image stays on <body> */
+}
+
+.hero-box {
+    background-color: rgba(255, 255, 255, 0.1); /* Translucent background */
+    border-radius: 20px;
+    padding: 40px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); /* For Safari */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    
+    /* Floating effect (Pop-out) */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Soft shadow around */
+    transform: translateY(-10px); /* Lifts it slightly */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth effect */
+}
+
+.hero-box:hover {
+    transform: translateY(-15px); /* Hover lifts it more */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3); /* Shadow deepens on hover */
+}
+
+
+.hero-box h1,
+.hero-box .slogan {
+    color: white;
+}
+
+
+.hero-content h1 {
+    font-size: 3rem;
+    color: gold;
+    margin-bottom: 20px;
+}
+
+.slogan {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 30px;
+}
+
+/* WhatsApp Button Styling */
+/* .whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #25D366;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 14px 24px;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 20px;
+}
+
+.whatsapp-btn:hover {
+  background-color: #1ebd5a;
+  transform: translateY(-2px);
+}
+
+.whatsapp-btn span::before {
+  content: '💬 ';
+  margin-right: 8px;
+} */
+
+.fixed-whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  background-color: #25D366;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 12px 20px;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.fixed-whatsapp:hover {
+  transform: scale(1.05);
+}
+
+/* About Us Section */
+.about-us {
+    background-color: rgba(0, 0, 0, 0.6); /* semi-transparent black */
+    padding: 60px 20px;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.about-summary {
+  font-family: 'Georgia', serif; /* Elegant readable font */
+  font-size: 1.2rem;
+  color: #ddd;
+  max-width: 750px;
+  margin: 0 auto 20px auto;
+  line-height: 1.6;
+}
+
+.about-us::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark transparent overlay */
+    z-index: 1;
+}
+
+.about-us .container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    z-index: 2;
+}
+
+.about-us h2 {
+    font-size: 2.5rem;
+    color: gold;
+    margin-bottom: 20px;
+}
+
+.about-us p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #f5f5f5; /* soft white for elegance */
+  text-align: justify;
+}
+
+.learn-more-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: gold;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.learn-more-btn:hover {
+  background-color: #ffd700;
+  transform: translateY(-2px);
+}
+
+/* Services Section */
+.services {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 60px 20px;
+    color: white;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 60px;
+  }
+  
+  .services h2 {
+    font-size: 2.5rem;
+    color: gold;
+    margin-bottom: 40px;
+  }
+  
+  .service-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .service-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    flex: 1 1 250px;
+    min-width: 250px;
+    max-width: 300px;
+  }
+  
+  .service-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: gold;
+  }
+  
+  .service-item p {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  
+  .delivery-note {
+    margin-top: 40px;
+    font-style: italic;
+    font-size: 1rem;
+    color: #ddd;
+  }
+  
+  /* portfolio */
+
+  .portfolio {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 60px 20px;
+    color: white;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .portfolio h2 {
+    font-size: 2.5rem;
+    color: gold;
+    margin-bottom: 20px;
+  }
+  
+  .portfolio .intro-text {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    color: #ddd;
+  }
+  
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  .portfolio-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+  }
+  
+  .portfolio-grid img:hover {
+    transform: scale(1.03);
+  }
+
+  .portfolio-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    overflow: hidden;
+  }
+  
+  .portfolio-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: url('images/background.jpg') center/cover no-repeat;
+    filter: blur(8px) brightness(0.6);
+    z-index: 0;
+  }
+  
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .see-more {
+    text-decoration: none;
+  }
+  
+/* See More Box Styles */
+.see-more {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+  }
+  
+  .see-more-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 215, 0, 0.1); /* subtle gold tint */
+    color: gold;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border: 2px dashed gold;
+    border-radius: 12px;
+    height: 100%;
+    padding: 40px 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .see-more-box:hover {
+    background-color: gold;
+    color: black;
+    border: 2px solid black;
+    box-shadow: 0 0 15px gold;
+    cursor: pointer;
+  }
+  
+
+  /* Testimonials */
+  .testimonials .container {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 20px;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 40px 30px;
+    box-sizing: border-box;
+  }
+  
+  
+  /* .testimonials .container {
+    max-width: 1100px;
+    width: 100%;
+  } */
+  
+  .testimonials h2 {
+    font-size: 2.5rem;
+    color: gold;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+  }
+  
+  .testimonials h2::after {
+    content: '';
+    width: 80px;
+    height: 3px;
+    background: gold;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+  }
+  
+  .testimonial-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .testimonial {
+    background: linear-gradient(to bottom right, rgba(255,255,255,0.05), rgba(255,255,255,0.1));
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 5px;
+    padding: 25px 30px;
+    width: 300px;
+    min-height: 120px;
+    text-align: left;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  
+  .testimonial:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  }
+  
+  .testimonial p {
+    font-size: 1rem;
+    color: #fff;
+    font-style: italic;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  
+  .testimonial h4 {
+    font-size: 1rem;
+    color: gold;
+    font-weight: bold;
+    margin-top: auto;
+  }
+  
+  /* Contact us */
+
+  .contact-us {
+    padding: 5px 20px;
+    color: white;
+    text-align: center;
+  }
+  
+  .contact-us .container {
+        max-width: 900px;
+        background-color: rgba(0, 0, 0, 0.6);
+        border-radius: 25px;  /* Removed sharp edges */
+        margin: 40px auto;
+        padding: 40px 30px;
+        box-sizing: border-box;
+      
+  }
+  
+  .contact-us h2 {
+    font-size: 2.5rem;
+    color: gold;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+  }
+  
+  .contact-us h2::after {
+    content: '';
+    width: 80px;
+    height: 3px;
+    background: gold;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+  }
+  
+  .contact-us p {
+    font-size: 1.1rem;
+    margin: 15px 0;
+    color: #ddd;
+  }
+  
+  .contact-us a {
+    color: gold;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .contact-us a:hover {
+    text-decoration: underline;
+  }
+  
+  .map-container {
+    margin-top: 40px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+  
+
+  /* === NAVBAR === */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  }
+  
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: gold;
+    letter-spacing: 1px;
+    gap: 10px; /* space between image and text */
+  }
+  
+  .logo-icon {
+    width: 55px;   /* Adjust based on how big you want it */
+    height: auto;
+    border-radius: 6px; /* optional, for rounded corners */
+  }
+  
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: gold;
+  }
+  
+  /* Optional: add spacing below the header so content isn't hidden */
+  body {
+    padding-top: 100px;
+  }
+
+
+/* === HAMBURGER MENU === */
+.hamburger {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: gold;
+  z-index: 1001;
+  background: transparent;
+  border: none;
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    width: 220px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.75); /* darker glassy look */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links a {
+    color: white;
+    margin-left: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+    }
+
+.nav-links a:hover {
+color: gold;
+}
+
+
+  .hamburger {
+    display: block;
+  }
+}
+
+/* Request a Quote Section */
+
+.quote-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.quote-section h2 {
+  font-size: 2rem;
+  color: gold;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.quote-box {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.quote-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.quote-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.quote-form input,
+.quote-form select,
+.quote-form textarea {
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid gold;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: white;
+  outline: none;
+}
+
+.quote-form input::placeholder,
+.quote-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.quote-form select {
+  color: white;
+}
+
+.upload-label {
+  color: white;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.quote-form button {
+  background: gold;
+  color: black;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.quote-form button:hover {
+  background: #d4af37;
+}
+
+ /* FOOTER */
+ .site-footer {
+  background: rgba(0, 0, 0, 0.6); /* Transparent black */
+  color: white;
+  padding: 40px 0 20px;
+  font-size: 14px;
+  border-top: 1px solid gold;
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  box-shadow: 0 -2px 15px rgba(255, 215, 0, 0.1);
+  border-radius: 12px 12px 0 0;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 0 30px;
+}
+
+.footer-container div {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-container h3,
+.footer-container h4 {
+  margin-bottom: 10px;
+  color: gold;
+  font-weight: 600;
+}
+
+.footer-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-container ul li {
+  margin-bottom: 8px;
+}
+
+.footer-container a {
+  color: #f1c40f;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-container a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 15px;
+  font-size: 12px;
+  color: #ccc;
+}
+
+.footer-middle .quick-links-columns {
+  display: flex;
+  gap: 30px;
+}
+
+.footer-middle ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-middle ul li {
+  margin-bottom: 8px;
+}
+
+.footer-middle a {
+  color: #f1c40f;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-middle a:hover {
+  color: white;
+}
+
+/* Tighter alignment for each column */
+.footer-left,
+.footer-middle,
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Adjust footer title size */
+.footer-title h2 {
+  color: gold;
+}
+
+/* app-icons */
+.footer-right a {
+  color: #f1c40f;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-right a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+a i {
+  margin-right: 6px;
+  color: #000; /* or your brand color */
+}
+
+a .fa-instagram {
+  color: #E1306C; /* Instagram pinkish */
+}
+
+a .fa-facebook-f {
+  color: #1877F2; /* Facebook blue */
+}
+
+a .fa-tiktok {
+  color: #000000; /* TikTok black */
+}
+
+a:hover i {
+  opacity: 0.8;
+}
+
+/* === Mobile Adjustments === */
+@media only screen and (max-width: 768px) {
+
+  /* General font size adjustments */
+  body {
+      font-size: 14px;
+      line-height: 1.4;
+  }
+
+  h1 {
+      font-size: 2rem !important;
+  }
+
+  h2 {
+      font-size: 1.7rem !important;
+  }
+
+  h3 {
+      font-size: 1.3rem !important;
+  }
+
+  p {
+      font-size: 0.95rem !important;
+  }
+
+  /* Hero section adjustments */
+  .hero-content h1 {
+      font-size: 2rem !important;
+  }
+
+  .slogan {
+      font-size: 1.1rem !important;
+      margin-bottom: 20px !important;
+  }
+
+  .hero-box {
+      padding: 20px !important;
+  }
+
+  /* About Us & Services */
+  .about-us, .services, .portfolio, .testimonials, .contact-us {
+      padding: 40px 15px !important;
+  }
+
+  /* Portfolio grid */
+  .portfolio-grid {
+      grid-template-columns: 1fr !important;
+      gap: 15px !important;
+  }
+
+  /* Testimonials grid */
+  .testimonial-grid {
+      flex-direction: column !important;
+      gap: 20px !important;
+  }
+
+  /* Buttons */
+  .learn-more-btn, .quote-form button, .fixed-whatsapp {
+      font-size: 0.9rem !important;
+      padding: 10px 18px !important;
+  }
+
+    /* Navbar */
+    .nav-links {
+      font-size: 1rem !important;
+  }
+
+  /* Footer adjustments */
+  .footer-container {
+      flex-direction: column !important;
+      gap: 20px !important;
+  }
+
+}

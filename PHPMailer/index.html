@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css">
+
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Wan-Puck Upholstery | Couch Restoration, Office Furniture & Custom Builds</title>
+
+    <!-- ✅ SEO Meta Tags -->
+    <meta name="description" content="Wan-Puck Upholstery in Midrand specializes in couch restoration, custom builds, and office furniture. Quality craftsmanship, collection & delivery available.">
+    <meta name="keywords" content="Upholstery Midrand, Couch Restoration, Office Furniture, Custom Upholstery, Wan-Puck Upholstery, Furniture Repair South Africa">
+    <meta name="author" content="Wan-Puck Upholstery">
+    
+    <!-- ✅ Social Media Preview (Open Graph) -->
+    <meta property="og:title" content="Wan-Puck Upholstery | Transforming Furniture with Purpose">
+    <meta property="og:description" content="We restore couches, refurbish office furniture, and create custom upholstery in Midrand. Contact us today for a quote.">
+    <meta property="og:image" content="https://wanpuckupholstery.co.za/images/logo.png">
+    <meta property="og:url" content="https://wanpuckupholstery.co.za">
+    <meta property="og:type" content="website">
+
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container nav-container">
+            <h1 class="logo">
+                <img src="images/logo.png" alt="Couch Logo" class="logo-icon">
+                Wan-Puck Upholstery
+              </h1>
+          <div class="hamburger" onclick="toggleMenu()">
+            &#9776;
+          </div>
+          <nav class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#quote">Request Quote</a>
+            <a href="#contact-us">Contact</a>  
+          </nav>
+        </div>
+      </header>
+           
+
+    <header class="hero-section">
+        <div class="hero-box">
+          <h1>Wan-Puck Upholstery</h1>
+          <p class="slogan">Transforming Furniture with Purpose</p>
+          <!-- <a href="https://wa.me/27662888209?text=Hi%2C%20I%20saw%20your%20website%20and%20would%20like%20a%20quote%20please." 
+             target="_blank" 
+             class="whatsapp-btn">
+             <span>📞 Contact Us on WhatsApp</span>
+          </a> -->
+        </div>
+    </header>      
+    
+    <section class="about-us" id="about">
+      <div class="container">
+        <h2>About Wan-Puck Upholstery</h2>
+        <p class="about-summary">
+          At Wan-Puck Upholstery, we transform furniture into timeless masterpieces. 
+          From elegant couches to custom designs, our craftsmanship blends style, 
+          comfort, and durability — bringing new life to every piece.
+        </p>
+        <a href="about.html" class="learn-more-btn">Learn More</a>
+      </div>
+    </section>        
+    
+    <section class="services" id="services">
+        <div class="container">
+          <h2>Our Services</h2>
+          <div class="service-list">
+            <div class="service-item">
+              <h3>🛋️ Couch Upholstery</h3>
+              <p>We expertly restore and upholster couches to bring new life and comfort.</p>
+            </div>
+            <div class="service-item">
+              <h3>💼 Office Furniture</h3>
+              <p>Professional refurbishment of office chairs, desks, and other furniture.</p>
+            </div>
+            <div class="service-item">
+              <h3>🔨 Custom Builds</h3>
+              <p>Custom upholstery projects tailored to your unique style and needs.</p>
+            </div>
+          </div>
+          <p class="delivery-note">* We also collect and deliver for an additional fee.</p>
+        </div>
+      </section>
+
+      <section class="portfolio" id="portfolio">
+        <div class="container">
+          <h2>Our Portfolio</h2>
+          <p class="intro-text">Take a look at some of our recent transformations and custom builds.</p>
+          <div class="portfolio-grid">
+            <img src="images/IMG_8679.JPG" alt="Couch 1">
+            <img src="images/IMG_8680.JPG" alt="Office Chair">
+            <img src="images/IMG_8681.JPG" alt="Custom Build">
+      
+            <!-- See More card -->
+            <a href="portfolio.html" class="see-more">
+              <div class="see-more-box">
+                <p>See More</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+      
+      
+      <section class="testimonials" id="testimonials">
+        <div class="container">
+          <h2>What Our Clients Say</h2>
+          <div class="testimonial-grid">
+            <div class="testimonial">
+              <p>"Thank you so much for the chair...it looks lovely"</p>
+              <h4>- Cass</h4>
+            </div>
+            <div class="testimonial">
+              <p>"It really did come out perfectly. We are very happy with the outcome."</p>
+              <h4>- Khanya</h4>
+            </div>
+            <div class="testimonial">
+              <p>"Absolutely stunning work, the transformation is flawless."</p>
+              <h4>- Kamo</h4>
+            </div>
+          </div>
+        </div>
+      </section>
+
+<!-- Request a Quote Section -->
+<section id="quote" class="quote-section">
+  <div class="quote-box">
+    <h2>Request a Quote</h2>
+    <form class="quote-form" onsubmit="sendWhatsApp(); return false;">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      
+      <select name="service" required>
+        <option value="">Select Service</option>
+        <option value="couch-restoration">Couch Restoration</option>
+        <option value="custom-build">Custom Build</option>
+        <option value="office-furniture">Office Furniture</option>
+        <option value="other">Other</option>
+      </select>
+      
+      <textarea name="details" placeholder="Project Details" rows="4" required></textarea>
+      
+      <label class="upload-label">
+        Upload Images (optional)
+        <input type="file" name="images" accept="image/*">
+      </label>
+      
+      <div class="quote-buttons">
+        <button type="submit">Send via WhatsApp</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+
+
+
+<!-- Contact Us Section -->
+      <section class="contact-us" id="contact-us">
+        <div class="container">
+          <h2>Contact Us</h2>
+          <p>We’d love to hear from you! Reach out anytime.</p>
+          <p><strong>Location:</strong> Cnr. Brand Road & Swart Dr, President Park AH, Midrand 1685, Gauteng, South Africa</p>
+          <a href="https://wa.me/27662888209" target="_blank" style="color:gold;">066 288 8209</a> |
+          <a href="https://wa.me/27794212961" target="_blank" style="color:gold;">079 421 2961</a>
+          <p><strong>Follow us on social media:</strong> Wan Puck Upholstery (all platforms)</p>
+      
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3573.350918414737!2d28.08770851502515!3d-25.982871033813603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e957e16f8eab6db%3A0x13816c3d1046d05c!2sCnr.%20Brand%20Rd%20%26%20Swart%20Dr%2C%20Midrand!5e0!3m2!1sen!2sza!4v1689628319323!5m2!1sen!2sza"
+              width="100%"
+              height="300"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- Whatsapp Chat Section -->
+      <a href="https://wa.me/27662888209?text=Hi%2C%20I%20saw%20your%20website%20and%20would%20like%20a%20quote%20please." 
+      class="fixed-whatsapp" 
+      target="_blank">
+      💬 WhatsApp Us
+      </a>
+
+      <!--FOOTER-->
+<!-- FOOTER -->
+<footer class="site-footer glass-footer">
+  <div class="container footer-container">
+
+    <!-- Title Section -->
+    <div class="footer-left footer-title">
+      <h2>Wan-Puck Upholstery</h2>
+      <p>Transforming Furniture with Purpose</p>
+      <p>📍 Midrand, Gauteng, South Africa</p>
+      <p>📞 <a href="https://wa.me/27662888209" target="_blank">066 288 8209</a></p>
+    </div>
+
+    <!-- Quick Links Section -->
+    <div class="footer-middle">
+      <h4>Quick Links</h4>
+      <div class="quick-links-columns">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+        </ul>
+        <ul>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#quote">Quote</a></li>
+          <li><a href="#contact-us">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Contact & Social -->
+    <div class="footer-right">
+      <h4>Follow Us</h4>
+      <p>We're active on all major platforms:</p>
+      <p>
+        <a href="https://www.instagram.com/wanpuckupholstery" target="_blank">
+          <i class="fab fa-instagram"></i> Instagram
+        </a> |
+        
+        <a href="https://www.facebook.com/wanpuckupholstery" target="_blank">
+          <i class="fab fa-facebook-f"></i> Facebook
+        </a> |
+        
+        <a href="https://www.tiktok.com/@wanpuckupholstery" target="_blank">
+          <i class="fab fa-tiktok"></i> TikTok
+        </a>        
+      </p>
+      <p>💬 Chat with us on: <br/> 
+        <a href="https://wa.me/27794212961" target="_blank">WhatsApp: 079 421 2961</a> |
+        <a href="https://wa.me/27794212961" target="_blank">066 288 8209</a>
+        <p>Email: <a href="mailto:wanpuckupholstery@gmail.com">wanpuckupholstery@gmail.com</a></p>
+      </p>  
+    </div>    
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Wan-Puck Upholstery. All rights reserved.</p>
+    <p>Designed with ❤️ by SitesByKamo</p>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('show');
+  }
+</script>
+
+<!-- Request a Quote Section JS script -->
+<script>
+  function getFormData() {
+      const form = document.querySelector(".quote-form");
+      return {
+          name: form.name.value,
+          phone: form.phone.value,
+          email: form.email.value,
+          service: form.service.value,
+          details: form.details.value
+      };
+  }
+  
+
+  function sendWhatsApp() {
+      const data = getFormData();
+      const phoneNumber = "27718100711"; // Owner’s WhatsApp number
+  
+      const message = `Hello Wan-Puck Upholstery,%0A
+  Name: ${data.name}%0A
+  Phone: ${data.phone}%0A
+  Email: ${data.email}%0A
+  Service: ${data.service}%0A
+  Details: ${data.details}`;
+  
+      window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+  }
+  
+  function sendEmail() {
+      const data = getFormData();
+  
+      const subject = "Quote Request from Website";
+      const body = `Name: ${data.name}%0APhone: ${data.phone}%0AEmail: ${data.email}%0AService: ${data.service}%0ADetails: ${data.details}`;
+  
+      window.location.href = `mailto:kamohelomosiya89@gmail.com?subject=${subject}&body=${body}`;
+  }
+  </script>
+  </body>
+  </html>
+  
+</body>
+</html>
